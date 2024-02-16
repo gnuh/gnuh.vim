@@ -127,4 +127,32 @@ return {
       require("notify").setup(opts)
     end,
   },
+  {
+    "williamboman/mason.nvim",
+    cmd = {
+      "Mason",
+      "MasonInstall",
+      "MasonUninstall",
+      "MasonUninstallAll",
+      "MasonLog",
+    },
+    opts = function()
+      return require("plugins.config.mason")
+    end,
+    config = function(_, opts)
+      require("mason").setup(opts)
+    end,
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    requires = "williamboman/mason.nvim",
+    dependencies = { "neovim/nvim-lspconfig" },
+    config = function()
+      require("plugins.config.mason_lspconfig")
+    end,
+  },
+  {
+    "nvimtools/none-ls.nvim",
+    event = { "BufReadPost", "BufNewFile" },
+  }
 }
