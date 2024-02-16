@@ -7,15 +7,30 @@ return {
       vim.cmd [[colorscheme base16-irblack]]
     end,
   },
+  { "nvim-lua/plenary.nvim" },
+  { "Asheq/close-buffers.vim" },
+  { "MunifTanjim/nui.nvim" },
+  { "tpope/vim-surround" },
+  { 
+    "folke/twilight.nvim"
+  },
   {
-	"folke/which-key.nvim",
-	lazy = false,
-	module = true,
-	cmd = "WhichKey",
-	keys = "<leader>",
-	config = function()
-		require("plugins.config.which_key")
-	end,
+    "nvim-telescope/telescope-fzf-native.nvim",
+    build = "make",
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    requires = { {"nvim-lua/plenary.nvim"} }
+  }, 
+  {
+    "folke/which-key.nvim",
+    lazy = false,
+    module = true,
+    cmd = "WhichKey",
+    keys = "<leader>",
+    config = function()
+      require("plugins.config.which_key")
+    end,
   },
   {
     "nvim-tree/nvim-web-devicons",
@@ -38,9 +53,78 @@ return {
   },
   {
 	  "goolord/alpha-nvim",
-    requires = { "nvim-tree/nvim-web-devicons" },
+      requires = { "nvim-tree/nvim-web-devicons" },
+      config = function()
+        require("plugins.config.alpha")
+      end,
+    },
+    {
+      "max397574/better-escape.nvim",
+      config = function()
+        require("better_escape").setup {
+          mapping = { "jk", "jj", "kj" },
+          timeout = vim.o.timeoutlen,
+          clear_empty_lines = true,
+          keys = "<Esc>",
+        }
+      end,
+    },
+    {
+      "nvim-treesitter/nvim-treesitter",
+      opts = function()
+        return require("plugins.config.treesitter")
+      end,
+      config = function(_, opts)
+        require("nvim-treesitter.configs").setup(opts)
+      end,
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    event = { "InsertEnter", "CmdlineEnter" },
+    requires = "onsails/lspkind.nvim",
+    dependencies = {
+      "saadparwaiz1/cmp_luasnip", -- Snippet Completions
+      "hrsh7th/cmp-nvim-lsp", -- LSP Completions
+      "hrsh7th/cmp-cmdline", -- CommandLine Completions
+      "L3MON4D3/LuaSnip", -- Snippet Engine
+      "rafamadriz/friendly-snippets", -- Bunch of Snippets
+    },
     config = function()
-      require("plugins.config.alpha")
+      require("plugins.config.cmp")
+    end,
+  },
+  {
+    "willothy/nvim-cokeline",
+    dependencies = {
+      "nvim-lua/plenary.nvim",        -- Required for v0.4.0+
+      "nvim-tree/nvim-web-devicons", -- If you want devicons
+      "stevearc/resession.nvim"       -- Optional, for persistent history
+    },
+    config = function()
+      require('cokeline').setup()
+    end,
+  },
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+    opts = function()
+      return require("plugins.config.noice")
+    end,
+    config = function(_, opts)
+      require("noice").setup(opts)
+    end,
+  },
+  {
+    "rcarriga/nvim-notify",
+    opts = function()
+      return require("plugins.config.notify")
+    end,
+    config = function(_, opts)
+      require("notify").setup(opts)
     end,
   },
 }
