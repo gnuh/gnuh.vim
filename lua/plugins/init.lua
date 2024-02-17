@@ -11,9 +11,8 @@ return {
   { "Asheq/close-buffers.vim" },
   { "MunifTanjim/nui.nvim" },
   { "tpope/vim-surround" },
-  {
-    "folke/twilight.nvim",
-  },
+  { "folke/twilight.nvim" },
+  { "onsails/lspkind.nvim" },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
     build = "make",
@@ -198,10 +197,24 @@ return {
   {
     "numToStr/Comment.nvim",
     opts = function()
-      return require("plugins.config.comment")
+      return require "plugins.config.comment"
     end,
     config = function(_, opts)
-      require('Comment').setup(opts)
+      require("Comment").setup(opts)
+    end,
+  },
+  {
+    "glepnir/lspsaga.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    event = "BufRead",
+    opts = function()
+      return require "plugins.config.saga"
+    end,
+    config = function(_, opts)
+      require("lspsaga").setup(opts)
     end,
   },
 }
