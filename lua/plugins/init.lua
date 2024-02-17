@@ -217,4 +217,20 @@ return {
       require("lspsaga").setup(opts)
     end,
   },
+  {
+    "sontungexpt/sttusline",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    event = { "BufEnter" },
+    config = function()
+      require "plugins.config.sttusline"
+    end,
+  },
+  {
+    "karb94/neoscroll.nvim",
+    config = function()
+      require("neoscroll").setup {}
+    end,
+  },
 }
