@@ -1,22 +1,22 @@
 <div align='center'>
   <h1>
-    <a href='https://github.com/arctouch-magnochiabai/gnu.vim' target='_blank'>
+    <a href='https://github.com/arctouch-magnochiabai/gnuh.vim' target='_blank'>
      <span>G<img src='https://user-images.githubusercontent.com/101122677/220782485-0e5ea839-4f00-434d-94af-80d45f209bef.png'/>U.vim</span>
     </a>
   </h1>
-  <h3 align='center'> <code>GNU.Vim</code> is a <a href='https://github.com/neovim/neovim'>Nvim</a> config focused on <code>Full Cycle</code> development</h3>
+  <h3 align='center'> <code>gnuh.vim</code> is a <a href='https://github.com/neovim/neovim'>Nvim</a> config focused on <code>Full Cycle</code> development</h3>
   <br/>
 </div>
 <div align='center'>
-  <img src='https://img.shields.io/github/last-commit/arctouch-magnochiabai/gnu.vim?style=for-the-badge' />
-  <img src='https://img.shields.io/github/issues-raw/arctouch-magnochiabai/gnu.vim?color=orange&style=for-the-badge' />
-  <img src='https://img.shields.io/github/forks/arctouch-magnochiabai/gnu.vim?style=for-the-badge' />
+  <img src='https://img.shields.io/github/last-commit/arctouch-magnochiabai/gnuh.vim?style=for-the-badge' />
+  <img src='https://img.shields.io/github/issues-raw/arctouch-magnochiabai/gnuh.vim?color=orange&style=for-the-badge' />
+  <img src='https://img.shields.io/github/forks/arctouch-magnochiabai/gnuh.vim?style=for-the-badge' />
   <p>
   <br/>
-  · <a href='https://github.com/arctouch-magnochiabai/gnu.vim/issues' target='_blank'>
+  · <a href='https://github.com/arctouch-magnochiabai/gnuh.vim/issues' target='_blank'>
       Bug Report
     </a>
-  · <a href='https://github.com/arctouch-magnochiabai/gnu.vim/issues' target='_blank'>
+  · <a href='https://github.com/arctouch-magnochiabai/gnuh.vim/issues' target='_blank'>
       Request Feature
     </a>
   </p>
@@ -36,11 +36,11 @@
 # Installation
 
 ```sh
-sh -c "$(curl -s https://github.com/arctouch-magnochiabai/gnu.vim/blob/67d84b7d5fb76f989c26ca06a338ef91e2501129/install.sh)"
+sh -c "$(curl -s https://raw.githubusercontent.com/gnuh/gnuh.vim/main/install.sh)"
 ```
 
-- [install.sh](https://raw.githubusercontent.com/arctouch-magnochiabai/gnu.vim/main/install.sh)
-  - clone `gnu.vim`
+- [install.sh](https://raw.githubusercontent.com/gnuh/gnuh.vim/main/install.sh)
+  - clone `gnuh.vim`
   - Globally install typescript typescript-language-server vscode-langservers-extracted emmet-ls with npm
   - clone and build sumneko
 
@@ -137,5 +137,5 @@ sh -c "$(curl -s https://github.com/arctouch-magnochiabai/gnu.vim/blob/67d84b7d5
 . ~/.config/nvim/uninstaller.sh
 ```
 
-- The command above will remove `gnu.vim` configuration files
+- The command above will remove `gnuh.vim` configuration files
   - `remove(~/.config/nvim && ~/.local/share/nvim && ~/.cache/nvim)`
