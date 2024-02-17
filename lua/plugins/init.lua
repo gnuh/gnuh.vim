@@ -22,6 +22,10 @@ return {
     requires = { { "nvim-lua/plenary.nvim" } },
   },
   {
+    "stevearc/dressing.nvim",
+    opts = {},
+  },
+  {
     "folke/which-key.nvim",
     lazy = false,
     module = true,
@@ -100,7 +104,7 @@ return {
       "stevearc/resession.nvim",     -- Optional, for persistent history
     },
     config = function()
-      require("plugins.config.cokeline")
+      require "plugins.config.cokeline"
     end,
   },
   {
