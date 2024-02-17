@@ -99,11 +99,8 @@ return {
       "nvim-tree/nvim-web-devicons", -- If you want devicons
       "stevearc/resession.nvim",     -- Optional, for persistent history
     },
-    opts = function()
-      return require "plugins.config.cokeline"
-    end,
-    config = function(_, opts)
-      require("cokeline").setup(opts)
+    config = function()
+      require("plugins.config.cokeline")
     end,
   },
   {
