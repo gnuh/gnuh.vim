@@ -180,7 +180,7 @@ return {
     "m-demare/hlargs.nvim",
     requires = { "nvim-treesitter/nvim-treesitter" },
     opts = function()
-      return require("plugins.config.hlargs")
+      return require "plugins.config.hlargs"
     end,
     config = function(_, opts)
       require("hlargs").setup(opts)
@@ -189,10 +189,19 @@ return {
   {
     "kevinhwang91/nvim-hlslens",
     opts = function()
-      return require("plugins.config.hlslens")
+      return require "plugins.config.hlslens"
     end,
     config = function(_, opts)
       require("hlslens").setup(opts)
     end,
-  }
+  },
+  {
+    "numToStr/Comment.nvim",
+    opts = function()
+      return require("plugins.config.comment")
+    end,
+    config = function(_, opts)
+      require('Comment').setup(opts)
+    end,
+  },
 }
