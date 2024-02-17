@@ -11,8 +11,8 @@ return {
   { "Asheq/close-buffers.vim" },
   { "MunifTanjim/nui.nvim" },
   { "tpope/vim-surround" },
-  { 
-    "folke/twilight.nvim"
+  {
+    "folke/twilight.nvim",
   },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
@@ -20,8 +20,8 @@ return {
   },
   {
     "nvim-telescope/telescope.nvim",
-    requires = { {"nvim-lua/plenary.nvim"} }
-  }, 
+    requires = { { "nvim-lua/plenary.nvim" } },
+  },
   {
     "folke/which-key.nvim",
     lazy = false,
@@ -29,7 +29,7 @@ return {
     cmd = "WhichKey",
     keys = "<leader>",
     config = function()
-      require("plugins.config.which_key")
+      require "plugins.config.which_key"
     end,
   },
   {
@@ -52,56 +52,59 @@ return {
     end,
   },
   {
-	  "goolord/alpha-nvim",
-      requires = { "nvim-tree/nvim-web-devicons" },
-      config = function()
-        require("plugins.config.alpha")
-      end,
-    },
-    {
-      "max397574/better-escape.nvim",
-      config = function()
-        require("better_escape").setup {
-          mapping = { "jk", "jj", "kj" },
-          timeout = vim.o.timeoutlen,
-          clear_empty_lines = true,
-          keys = "<Esc>",
-        }
-      end,
-    },
-    {
-      "nvim-treesitter/nvim-treesitter",
-      opts = function()
-        return require("plugins.config.treesitter")
-      end,
-      config = function(_, opts)
-        require("nvim-treesitter.configs").setup(opts)
-      end,
+    "goolord/alpha-nvim",
+    requires = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require "plugins.config.alpha"
+    end,
+  },
+  {
+    "max397574/better-escape.nvim",
+    config = function()
+      require("better_escape").setup {
+        mapping = { "jk", "jj", "kj" },
+        timeout = vim.o.timeoutlen,
+        clear_empty_lines = true,
+        keys = "<Esc>",
+      }
+    end,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function()
+      return require "plugins.config.treesitter"
+    end,
+    config = function(_, opts)
+      require("nvim-treesitter.configs").setup(opts)
+    end,
   },
   {
     "hrsh7th/nvim-cmp",
     event = { "InsertEnter", "CmdlineEnter" },
     requires = "onsails/lspkind.nvim",
     dependencies = {
-      "saadparwaiz1/cmp_luasnip", -- Snippet Completions
-      "hrsh7th/cmp-nvim-lsp", -- LSP Completions
-      "hrsh7th/cmp-cmdline", -- CommandLine Completions
-      "L3MON4D3/LuaSnip", -- Snippet Engine
+      "saadparwaiz1/cmp_luasnip",     -- Snippet Completions
+      "hrsh7th/cmp-nvim-lsp",         -- LSP Completions
+      "hrsh7th/cmp-cmdline",          -- CommandLine Completions
+      "L3MON4D3/LuaSnip",             -- Snippet Engine
       "rafamadriz/friendly-snippets", -- Bunch of Snippets
     },
     config = function()
-      require("plugins.config.cmp")
+      require "plugins.config.cmp"
     end,
   },
   {
     "willothy/nvim-cokeline",
     dependencies = {
-      "nvim-lua/plenary.nvim",        -- Required for v0.4.0+
+      "nvim-lua/plenary.nvim",       -- Required for v0.4.0+
       "nvim-tree/nvim-web-devicons", -- If you want devicons
-      "stevearc/resession.nvim"       -- Optional, for persistent history
+      "stevearc/resession.nvim",     -- Optional, for persistent history
     },
-    config = function()
-      require('cokeline').setup()
+    opts = function()
+      return require "plugins.config.cokeline"
+    end,
+    config = function(_, opts)
+      require("cokeline").setup(opts)
     end,
   },
   {
@@ -112,7 +115,7 @@ return {
       "rcarriga/nvim-notify",
     },
     opts = function()
-      return require("plugins.config.noice")
+      return require "plugins.config.noice"
     end,
     config = function(_, opts)
       require("noice").setup(opts)
@@ -121,7 +124,7 @@ return {
   {
     "rcarriga/nvim-notify",
     opts = function()
-      return require("plugins.config.notify")
+      return require "plugins.config.notify"
     end,
     config = function(_, opts)
       require("notify").setup(opts)
@@ -137,7 +140,7 @@ return {
       "MasonLog",
     },
     opts = function()
-      return require("plugins.config.mason")
+      return require "plugins.config.mason"
     end,
     config = function(_, opts)
       require("mason").setup(opts)
@@ -148,11 +151,48 @@ return {
     requires = "williamboman/mason.nvim",
     dependencies = { "neovim/nvim-lspconfig" },
     config = function()
-      require("plugins.config.mason_lspconfig")
+      require "plugins.config.mason_lspconfig"
     end,
   },
   {
     "nvimtools/none-ls.nvim",
     event = { "BufReadPost", "BufNewFile" },
+  },
+  {
+    "NvChad/nvim-colorizer.lua",
+    opts = function()
+      return require "plugins.config.colorizer"
+    end,
+    config = function(_, opts)
+      require("colorizer").setup(opts)
+    end,
+  },
+  {
+    "yamatsum/nvim-cursorline",
+    opts = function()
+      return require "plugins.config.cursorline"
+    end,
+    config = function(_, opts)
+      require("nvim-cursorline").setup(opts)
+    end,
+  },
+  {
+    "m-demare/hlargs.nvim",
+    requires = { "nvim-treesitter/nvim-treesitter" },
+    opts = function()
+      return require("plugins.config.hlargs")
+    end,
+    config = function(_, opts)
+      require("hlargs").setup(opts)
+    end,
+  },
+  {
+    "kevinhwang91/nvim-hlslens",
+    opts = function()
+      return require("plugins.config.hlslens")
+    end,
+    config = function(_, opts)
+      require("hlslens").setup(opts)
+    end,
   }
 }
