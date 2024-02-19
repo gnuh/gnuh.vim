@@ -301,7 +301,7 @@ local mappings = {
       c = { "<cmd>Octo issue create<cr>", "Create Issue" },
     },
   },
-  J = {
+  j = {
     name = "Jester",
     r = { ":lua require'jester'.run()<cr>", "Run" },
     R = {
