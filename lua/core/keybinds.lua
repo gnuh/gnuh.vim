@@ -2,6 +2,9 @@ local map = vim.api.nvim_set_keymap
 local keymap = vim.keymap.set
 local silentMap = { noremap = true, silent = true }
 
+-- Create a keybind to :noh on <Esc>
+map("i", "<Esc>", ":noh<CR>", silentMap)
+
 -- Create tab keybind to indent in visual mode
 map("v", "<Tab>", ">gv", { noremap = true })
 map("v", "<S-Tab>", "<gv", { noremap = true })
