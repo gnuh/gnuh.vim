@@ -1,13 +1,12 @@
 local options = {
-  use_local_fs = false,                    -- use local files on right side of reviews
-  enable_builtin = false,                  -- shows a list of builtin actions when no action is provided
-  default_remote = {"upstream", "origin"}; -- order to try remotes
-  default_merge_method = "commit",         -- default merge method which should be used when calling `Octo pr merge`, could be `commit`, `rebase` or `squash`
-  ssh_aliases = {},                        -- SSH aliases. e.g. `ssh_aliases = {["github.com-work"] = "github.com"}`
-  picker = "telescope",                    -- or "fzf-lua"
+  use_local_fs = false,
+  enable_builtin = true,
+  default_remote = {"upstream", "origin"};
+  default_merge_method = "commit",
+  ssh_aliases = {},
   picker_config = {
-    use_emojis = false,                    -- only used by "fzf-lua" picker for now
-    mappings = {                           -- mappings for the pickers
+    use_emojis = false,
+    mappings = {
       open_in_browser = { lhs = "<C-b>", desc = "open issue in browser" },
       copy_url = { lhs = "<C-y>", desc = "copy url to system clipboard" },
       checkout_pr = { lhs = "<C-o>", desc = "checkout pull request" },
@@ -33,9 +32,6 @@ local options = {
     use_signcolumn = true,                 -- show "modified" marks on the sign column
   },
   picker = "telescope",                    -- "telescope" | "fzf-lua"
-  picker_config = {
-    use_emojis = false,                    -- Only used in fzf-lua picker. If you want emojis when viewing the picker set to true.
-  },
   issues = {
     order_by = {                           -- criteria to sort results of `Octo issue list`
       field = "CREATED_AT",                -- either COMMENTS, CREATED_AT or UPDATED_AT (https://docs.github.com/en/graphql/reference/enums#issueorderfield)
