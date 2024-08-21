@@ -33,6 +33,13 @@ return {
   },
   {
     "folke/which-key.nvim",
+    opts = {
+      icons = {
+        rules = {
+          { plugin = "copilot.lua", icon = " ", color = "orange" },
+        },
+      },
+    },
     lazy = false,
     module = true,
     cmd = "WhichKey",
@@ -117,13 +124,13 @@ return {
   {
     "NvChad/nvim-colorizer.lua",
     config = function()
-      require("colorizer").setup{}
+      require("colorizer").setup {}
     end,
   },
   {
     "m-demare/hlargs.nvim",
     config = function()
-      require("hlargs").setup{}
+      require("hlargs").setup {}
     end,
   },
   {
@@ -164,5 +171,6 @@ return {
     config = function()
       require("neoscroll").setup {}
     end,
-  }
+  },
+  { 'akinsho/git-conflict.nvim', version = "*", config = true }
 }

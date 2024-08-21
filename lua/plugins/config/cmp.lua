@@ -50,7 +50,7 @@ cmp.setup {
       maxwidth = 50,
       ellipsis_char = '...',
       show_labelDetails = true, -- show labelDetails in menu. Disabled by default
-      before = function (entry, vim_item)
+      before = function(entry, vim_item)
         return vim_item
       end
     })
@@ -115,10 +115,11 @@ cmp.setup {
     }),
   },
   sources = cmp.config.sources {
-    { name = "orgmode", group_index = 2 },
-    { name = "tailwindcss", group_index = 2 },
-    { name = "nvim_lsp", group_index = 3 },
-    { name = "nvim_lua", group_index = 3 },
+    { name = "copilot" },
+    { name = "orgmode" },
+    { name = "tailwindcss" },
+    { name = "nvim_lsp" },
+    { name = "nvim_lua" },
     -- {
     --   name = "buffer",
     --   option = { keyword_pattern = [[\k\+]] },
