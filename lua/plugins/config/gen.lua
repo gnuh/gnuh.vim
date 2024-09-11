@@ -1,5 +1,5 @@
 local options = {
-  model = "llama3.1",
+  model = "codegemma:7b-instruct",
   host = "localhost",
   port = "11434",
   quit_map = "q",
