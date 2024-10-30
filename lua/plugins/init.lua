@@ -33,6 +33,7 @@ return {
   },
   {
     "folke/which-key.nvim",
+    event = "VeryLazy",
     opts = {
       icons = {
         rules = {
@@ -40,10 +41,15 @@ return {
         },
       },
     },
-    lazy = false,
-    module = true,
-    cmd = "WhichKey",
-    keys = "<leader>",
+    keys = {
+      {
+        "<leader>?",
+        function()
+          require("which-key").show({ global = false })
+        end,
+        desc = "Buffer Local Keymaps (which-key)",
+      },
+    },
     config = function()
       require "plugins.config.which_key"
     end,
@@ -92,9 +98,6 @@ return {
     config = function()
       require("better_escape").setup {
         mapping = { "jk", "jj", "kj", "kk" },
-        timeout = vim.o.timeoutlen,
-        clear_empty_lines = true,
-        keys = "<Esc>",
       }
     end,
   },
