@@ -33,6 +33,8 @@ return {
     prompts = prompts,
     auto_follow_cursor = false, -- Don't follow the cursor after getting response
     show_help = false,          -- Show help in virtual text, set to true if that's 1st time using Copilot Chat
+    model = 'claude-3.5-sonnet',
+    temperature = 0.7,
     mappings = {
       -- Use tab for completion
       complete = {
@@ -96,6 +98,12 @@ return {
     }
     opts.prompts.CommitLintStaged = {
       prompt = "Write commit message for the change with commitlint convention",
+      selection = function(source)
+        return select.gitdiff(source, true)
+      end,
+    }
+    opts.prompts.CommitLintStagedBR = {
+      prompt = "Write commit message for the change with commitlint convention in Brazilian Portuguese",
       selection = function(source)
         return select.gitdiff(source, true)
       end,
@@ -211,14 +219,24 @@ return {
     },
     -- Generate commit message based on the git diff
     {
-      "<leader>am",
+      "<leader>aO",
       "<cmd>CopilotChatCommit<cr>",
       desc = "CopilotChat - Generate commit message for all changes",
     },
     {
-      "<leader>aM",
+      "<leader>am",
       "<cmd>CopilotChatCommitStaged<cr>",
       desc = "CopilotChat - Generate commit message for staged changes",
+    },
+    {
+      "<leader>aM",
+      "<cmd>CopilotChatCommitLintStaged<cr>",
+      desc = "CopilotChat - Generate commit message commitlint for staged changes",
+    },
+    {
+      "<leader>aL",
+      "<cmd>CopilotChatCommitLintStagedBR<cr>",
+      desc = "CopilotChat - Generate commit message for staged changes in PT-BR",
     },
     -- Quick chat with Copilot
     {
