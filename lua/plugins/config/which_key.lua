@@ -157,6 +157,7 @@ wk.add({
   { "<leader>Sci", ":Lspsaga lsp_finder<cr>", desc = "Incoming Calls" },
   { "<leader>Sco", ":Lspsaga lsp_finder<cr>", desc = "Outgoing Calls" },
   { "<leader>w", ":Weather<cr>", desc = "Weather" },
+  { "<leader>i", ":Telescope import<cr>", desc = "Telescope Import" },
   { "<leader>N", group = "NeoTest" },
   { "<leader>Nr", ":lua require('neotest').run.run()<cr>", desc = "Run" },
   { "<leader>Nf", ":lua require('neotest').run.run(vim.fn.expand('%'))<cr>", desc = "Run File" },

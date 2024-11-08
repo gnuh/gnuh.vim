@@ -1,4 +1,7 @@
 local options = {
+  suppress_missing_scope = {
+    projects_v2 = true,
+  },
   use_local_fs = false,
   enable_builtin = true,
   default_remote = {"upstream", "origin"};
