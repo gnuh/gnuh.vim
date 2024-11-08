@@ -1,6 +1,7 @@
 local lspkind = require('lspkind')
 local cmp = require "cmp"
 local luasnip = require "luasnip"
+local tailwindcss_colorizer_cmp = require("tailwindcss-colorizer-cmp")
 
 require("luasnip.loaders.from_snipmate").lazy_load {
   paths = vim.fn.stdpath "config" .. "/snippets/snipmate",
@@ -43,17 +44,23 @@ local has_words_before = function()
   return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match "^%s*$" == nil
 end
 
+local custom_formatter = function(entry, vim_item)
+  vim_item = lspkind.cmp_format({
+    mode = 'symbol',
+    maxwidth = 50,
+    ellipsis_char = '...',
+    show_labelDetails = true,
+    before = function(entry, vim_item)
+      return vim_item
+    end
+  })(entry, vim_item)
+  vim_item = tailwindcss_colorizer_cmp.formatter(entry, vim_item)
+  return vim_item
+end
+
 cmp.setup {
   formatting = {
-    format = lspkind.cmp_format({
-      mode = 'symbol',
-      maxwidth = 50,
-      ellipsis_char = '...',
-      show_labelDetails = true, -- show labelDetails in menu. Disabled by default
-      before = function(entry, vim_item)
-        return vim_item
-      end
-    })
+    format = custom_formatter,
   },
   enabled = function()
     return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
