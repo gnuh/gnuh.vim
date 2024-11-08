@@ -1,7 +1,6 @@
 local wk = require("which-key")
 
 wk.add({
-  { "<leader>a", function() toggleAlpha() end, desc = "Alpha" },
   { "<leader>y", ":%y+<cr>", desc = "Yank All Text" },
   { "<leader>q", ":qa!<cr>", desc = "Quit" },
   { "<leader>c", ":Bdelete this<cr>", desc = "Delete Buffer" },
