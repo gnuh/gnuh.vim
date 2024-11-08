@@ -94,6 +94,12 @@ return {
         return select.gitdiff(source, true)
       end,
     }
+    opts.prompts.CommitLintStaged = {
+      prompt = "Write commit message for the change with commitlint convention",
+      selection = function(source)
+        return select.gitdiff(source, true)
+      end,
+    }
 
     chat.setup(opts)
     -- Setup the CMP integration
