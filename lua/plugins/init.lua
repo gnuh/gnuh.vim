@@ -174,5 +174,5 @@ return {
     end,
   },
   { 'akinsho/git-conflict.nvim', version = "*", config = true },
-  { "David-Kunz/jester" },
+  { "mattkubej/jest.nvim" }
 }
