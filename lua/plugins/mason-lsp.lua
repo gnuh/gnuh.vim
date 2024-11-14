@@ -29,29 +29,7 @@ return {
       require("lspconfig.ui.windows").default_options.border = "rounded"
 
       mason_lspconfig.setup {
-        ensure_installed = {
-          "lua_ls",
-          "rust_analyzer",
-          "clangd",
-          "omnisharp_mono",
-          "cssls",
-          "cssmodules_ls",
-          "css_variables",
-          "unocss",
-          "dockerls",
-          "eslint",
-          "golangci_lint_ls",
-          "gopls",
-          "graphql",
-          "html",
-          "jsonls",
-          "tsserver",
-          "vtsls",
-          "marksman",
-          "pyright",
-          "sqls",
-          "tailwindcss",
-        },
+        ensure_installed = {},
       }
 
       mason_lspconfig.setup_handlers {
