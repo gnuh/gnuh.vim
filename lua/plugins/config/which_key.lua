@@ -169,6 +169,7 @@ wk.add({
   { "<leader>uf", ":UrlView file<cr>", desc = "Open file URLs" },
   { "<leader>ul", ":UrlView lazy<cr>", desc = "Open lazy URLs" },
   { "<leader>z", ":ZenMode<cr>", desc = "Zen Mode" },
+  { "<leader>E", ":NvimTreeFindFileToggle<cr>", desc = "Explorer" }
 })
 
 return wk

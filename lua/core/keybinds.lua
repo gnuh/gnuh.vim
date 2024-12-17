@@ -57,3 +57,11 @@ keymap("n", "<space>RL", "<Plug>RestNvimLast")
 
 -- Gen Plugin
 keymap({ 'n', 'v' }, '<leader>]', ':Gen<CR>')
+
+-- Copilot Chat
+keymap("n", "<leader>ccq", function()
+  local input = vim.fn.input("Quick Chat: ")
+  if input ~= "" then
+    require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
+  end
+end, { desc = "CopilotChat - Quick chat" })
