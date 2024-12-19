@@ -72,7 +72,7 @@ return {
           sorter = "case_sensitive",
         },
         view = {
-          width = 30,
+          width = 60,
         },
         renderer = {
           group_empty = true,
@@ -81,16 +81,6 @@ return {
           dotfiles = true,
         },
       })
-    end,
-  },
-  {
-    "willothy/nvim-cokeline",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-    },
-    config = function()
-      require "plugins.config.cokeline"
     end,
   },
   {
