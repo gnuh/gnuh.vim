@@ -51,6 +51,8 @@ map("n", "L", ":BufferNext<cr>", { silent = true })
 map("n", "<C-L>", ":BufferMoveNext<cr>", { noremap = true, silent = true })
 map("n", "H", ":BufferPrevious<cr>", { silent = true })
 map("n", "<C-H>", ":BufferMovePrevious<cr>", { noremap = true, silent = true })
+keymap("n", "<space>b", ":BufferPick<cr>", { noremap = true, silent = true })
+keymap("n", "<space>B", ":BufferPickDelete<cr>", { noremap = true, silent = true })
 
 -- Rest Plugin
 keymap("n", "<space>RR", "<Plug>RestNvim")
