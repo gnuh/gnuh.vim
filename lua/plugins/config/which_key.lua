@@ -2,7 +2,6 @@ local wk = require("which-key")
 
 wk.add({
   { "<leader>y", ":%y+<cr>", desc = "Yank All Text" },
-  { "<leader>q", ":qa!<cr>", desc = "Quit" },
   { "<leader>c", ":Bdelete this<cr>", desc = "Delete Buffer" },
   { "<leader>C", group = "Buffers" },
   { "<leader>Cc", ":Bdelete other<cr>", desc = "All except this" },
@@ -169,8 +168,21 @@ wk.add({
   { "<leader>uf", ":UrlView file<cr>", desc = "Open file URLs" },
   { "<leader>ul", ":UrlView lazy<cr>", desc = "Open lazy URLs" },
   { "<leader>z", ":ZenMode<cr>", desc = "Zen Mode" },
-  { "<leader>E", ":NvimTreeFindFileToggle<cr>", desc = "Explorer" }
+  { "<leader>E", ":NvimTreeFindFileToggle<cr>", desc = "Explorer" },
+  { "<leader>b", ":lua require('buffer_manager.ui').toggle_quick_menu()<cr>", desc = "Buffer Manager" },
+  { "<leader>B", ":BufferPickDelete<cr>", desc = "Buffer Pick Delete" },
+  { "<leader>q", group = "Persistence" },
+  { "<leader>ql", ":lua require('persistence').load()<cr>", desc = "Load Session" },
+  { "<leader>qs", ":lua require('persistence').select()<cr>", desc = "Select Session" },
+  { "<leader>qL", ":lua require('persistence').load({last = true})<cr>", desc = "Load Session" },
+  { "<leader>qS", ":lua require('persistence').stop()<cr>", desc = "Load Session" },
+  { "<leader>a", group = "CodeCompanion" },
+  { "<leader>aa", ":CodeCompanionChat Toggle<cr>", desc = "Companion Chat" },
+  { "<leader>aA", ":CodeCompanion<cr>", desc = "Companion" },
+  { "<leader>ac", ":CodeCompanionCmd<cr>", desc = "Companion Cmd" },
+  { "<leader>aC", ":CodeCompanionActions<cr>", desc = "Companion Actions" },
+  { "<leader>aP", ":CopilotChatCommitStaged<cr>", desc = "Commit Staged" },
+
 })
 
 return wk
-
