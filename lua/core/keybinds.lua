@@ -2,7 +2,6 @@ local map = vim.api.nvim_set_keymap
 local keymap = vim.keymap.set
 local silentMap = { noremap = true, silent = true }
 
--- Before Escape when Esc is pressed in View Mode execute :noh
 map("n", "<Esc>", ":noh<CR>", silentMap)
 -- Change to normal mode when pressing O
 map("i", "<Esc>", "<Esc>", silentMap)
@@ -51,8 +50,6 @@ map("n", "L", ":BufferNext<cr>", { silent = true })
 map("n", "<C-L>", ":BufferMoveNext<cr>", { noremap = true, silent = true })
 map("n", "H", ":BufferPrevious<cr>", { silent = true })
 map("n", "<C-H>", ":BufferMovePrevious<cr>", { noremap = true, silent = true })
-keymap("n", "<space>b", ":BufferPick<cr>", { noremap = true, silent = true })
-keymap("n", "<space>B", ":BufferPickDelete<cr>", { noremap = true, silent = true })
 
 -- Rest Plugin
 keymap("n", "<space>RR", "<Plug>RestNvim")
@@ -69,3 +66,4 @@ keymap("n", "<leader>ccq", function()
     require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
   end
 end, { desc = "CopilotChat - Quick chat" })
+
