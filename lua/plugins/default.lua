@@ -30,12 +30,8 @@ return {
   -- change trouble config
   {
     "folke/trouble.nvim",
-    -- opts will be merged with the parent spec
     opts = { use_diagnostic_signs = true },
   },
-
-  -- disable trouble
-  { "folke/trouble.nvim", enabled = false },
 
   -- override nvim-cmp and add cmp-emoji
   {
@@ -159,19 +155,6 @@ return {
     end,
   },
 
-  -- the opts function can also be used to change the default opts:
-  {
-    "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
-    opts = function(_, opts)
-      table.insert(opts.sections.lualine_x, {
-        function()
-          return "😄"
-        end,
-      })
-    end,
-  },
-
   -- or you can return new options to override all the defaults
   {
     "nvim-lualine/lualine.nvim",
@@ -197,38 +180,6 @@ return {
         "flake8",
       },
     },
-  },
-  {
-    "olimorris/codecompanion.nvim",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-lua/plenary.nvim",
-      { "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown", "codecompanion" } },
-    },
-    config = function()
-      local status_ok, codecompanion = pcall(require, "codecompanion")
-      if not status_ok then
-        vim.notify("Failed to load codecompanion", vim.log.levels.ERROR)
-        return
-      end
-
-      codecompanion.setup({
-        strategies = {
-          chat = {
-            adapter = "copilot",
-            options = {
-              -- Add any specific options for the chat strategy here
-            },
-          },
-          inline = {
-            adapter = "copilot",
-            options = {
-              -- Add any specific options for the inline strategy here
-            },
-          },
-        },
-      })
-    end,
   },
   {
       "kdheepak/lazygit.nvim",
@@ -266,20 +217,5 @@ return {
         },
       },
     },
-  },
-  {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    build = "cd app && npm install",
-    init = function()
-      vim.g.mkdp_filetypes = { "markdown" }
-    end,
-    ft = { "markdown" },
-  },
-  {
-    "max397574/better-escape.nvim",
-    config = function()
-      require("better_escape").setup()
-    end,
   }
 }
